@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+        <record model="ir.ui.view" id="purchase_view_order_line_form2_contract_type">
+            <field name="name">purchase.view.order.line.form2.contract.type</field>
+            <field name="model">purchase.order.line</field>
+            <field name="inherit_id" ref="purchase.purchase_order_line_form2"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="before">
+                    <field name="contract_type"/>
+                   
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="purchase_view_order_line_tree_contract_type">
+            <field name="name">purchase.view.order.line.tree.contract.type</field>
+            <field name="model">purchase.order.line</field>
+            <field name="inherit_id" ref="purchase.purchase_order_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="order_id" position="after">
+                    <field name="contract_type"/>
+                    <field name="is_signed"/>
+                </field>
+                <field name="name" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="price_unit" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="purchase_order_line_search_view">
+            <field name="name">purchase.order.line.search</field>
+            <field name="model">purchase.order.line</field>
+            <field name="arch" type="xml">
+                <search>
+                    <group string="Group By">
+                        <filter name="group_by_contract_type" string="Contract Type"
+                                context="{'group_by': 'contract_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    
+</odoo>

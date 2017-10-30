@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <report
+        id="axc_contract"
+        model="purchase.order"
+        string="AxC Contract"
+        name="purchase_contract_type.axc_contract_view"
+        file="purchase_contract_type.axc_contract"
+        report_type="qweb-pdf" />
+
+    <template id="axc_contract_view">
+        <div class="header">
+        </div>
+        <div class="footer">
+            <div class="row">
+                <!-- All your custom code here -->
+            </div>
+        </div>
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h1 align="right"><b>CONTRANO NO. <span t-field="doc.name"/></b></h1>
+                        <p align="justify">
+                            <b>
+                            CONTRATO DE COMPRA-VENTA A TÉRMINO DE MAIZ AMARILLO, DE LA COSECHA DEL ESTADO DE CHIHUAHUA DEL CICLO AGRÍCOLA PRIMAVERA VERANO 2016, EN LO SUCESIVO DENOMINADO “PRODUCTO”, QUE CELEBRAN POR UNA PARTE, AGROCOMERCIAL CAMPO NUEVO, S.P.R. DE R.L. DE C.V. REPRESENTADA EN ESTE ACTO POR EL SEÑOR JOHAN PETERS FRIESSEN, EN SU CARÁCTER DE REPRESENTANTE LEGAL, Y POR LA OTRA PARTE, <span t-field="doc.partner_id"/> REPRESENTADA EN ESTE ACTO POR EL SEÑOR <span t-field="doc.partner_ref"/> , EN LO SUCESIVO DENOMINADO “EL VENDEDOR”, EN LO SUCESIVO DENOMINADOS CONJUNTAMENTE LOS CONTRATANTES COMO “LAS PARTES”, DE CONFORMIDAD CON LAS SIGUIENTES DECLARACIONES Y CLÁUSULAS:
+                            </b>
+                        </p>
+                        <p align="center">
+                            <b>
+                                DECLARACIONES
+                            </b>
+                        </p>
+                        <p>
+                            I.- DE “EL COMPRADOR”:
+                        </p>
+                        <p>
+                            I.1.- Que es una sociedad mercantil constituida de conformidad con las leyes mexicanas, bajo la denominación de Agrocomercial Campo Nuevo, S.P.R. de R.L. de C.V., como se acredita con la Escritura Pública número 12,400, de fecha veintinueve del mes de junio de 2009, otorgada ante la fe del licenciado Federico Hagelsieb Lerma, Fedatario Público número cuatro de ciudad Cuauhtemoc, Chihuahua; inscrita en el Registro Público de Comercio de ciudad Cuauhtemoc, Chihuahua, bajo el folio mercantil 7626*2; que dentro de su objeto social se encuentra: Comercio al por mayor de semillas y granos alimenticios y que el señor Johan Peters Friessen, en su carácter de Representante Legal, está facultado para celebrar este Contrato, como se acredita con la Escritura Pública del Poder Notarial número 12,400, de fecha veintinueve del mes de junio de 2009, otorgada ante la fe del licenciado Federico Hagelsieb Lerma, Fedatario Público número cuatro de ciudad Cuauhtemoc, Chihuahua, y cuyas facultades no le han sido limitadas, modificadas o revocadas a la fecha de la firma del Contrato.
+                        </p>
+                        <p>
+                            I.2.- Que su Registro Federal de Contribuyentes es: ACN090624B54.
+                        </p>
+                        <p>
+                            I.3.- Que se identifica con credencial para votar, y señala como domicilio para los fines y efectos legales a que haya lugar, derivados del presente Contrato, el ubicado en Carretera Cuauhtemoc - La Junta Km 111 Campo Numero 1-B Cuauhtemoc Chihuahua 31605 y el teléfono 625 583 1738
+                        </p>
+                        <p>
+                            II.- DE “EL VENDEDOR”:
+                        </p>
+                        <p>
+                            <b>
+                                II.1.- Que es una sociedad constituida de conformidad con las leyes mexicanas, bajo la denominación de <span t-field="doc.partner_id"/>, como se acredita con la Escritura Pública número 6,258 de fecha quince del mes de Noviembre de 2012, ante la fe del notario publico numero 1 de la ciudad de Cuauhtemoc, Chihuahua la Lic. Maria Luisa Corral Rios inscrita en el Registro Publico de la Propiedad bajo el folio mercantil 8130*2 de la ciudad de Cuauhtemoc, Chihuahua, que dentro del objeto de la sociedad se encuentra la compra, venta y produccion de productos agricolas, que el señor David Enns Dyck en su carácter de Representante Legal, está facultado para celebrar este Contrato, y cuyas facultades no le han sido limitadas, modificadas o revocadas a la fecha de la firma del Contrato.
+                            </b>
+                        </p>
+                        <p>
+                            II.2.- Que su Registro Federal de Contribuyentes es: <span t-field="doc.partner_id.vat"/>.
+                        </p>
+                        <p>
+                            II.3.- Que señala como domicilio, para los fines y efectos legales a que haya lugar derivados del presente Contrato, el ubicado en: <span t-field="doc.partner_id.street"/>, <span t-field="doc.partner_id.street2"/>, <span t-field="doc.partner_id.city"/>, <span t-field="doc.partner_id.state_id"/> y teléfono <span t-field="doc.partner_id.phone"/>.
+                        </p>
+                        <p>
+                            III.- DE “LAS PARTES”:
+                        </p>
+                        <p>
+                            III.1.- Que declaran, bajo protesta de decir verdad, que al amparo del presente Contrato celebran una compra-venta a término de <span t-field="doc.tons"/> toneladas del “PRODUCTO”.
+                        </p>
+                        <p>
+                            III.2.- Que en la celebración del presente Contrato no ha existido mala fe, error, dolo o violencia de ningún tipo y que las contraprestaciones establecidas en el mismo son las justas, por lo que es su libre voluntad celebrar este Contrato de Compra-Venta a Término y obligarse de acuerdo con las siguientes:
+                        </p>
+                        <p align="center">
+                            <b>
+                                C L Á U S U L A S
+                            </b>
+                        </p>
+                        <p>
+                            PRIMERA.- OBJETO. “EL VENDEDOR” se obliga a entregar a “EL COMPRADOR” <span t-field="doc.tons"/> (<span t-field="doc.tons_text"/>)  toneladas del “PRODUCTO” que obtendran de los siguientes predios:
+                        </p>
+                        <p>
+                            <style>
+                                thead th, thead td {
+                                  text-align: center;
+                                }
+                                tbody th, tbody td {
+                                  text-align: center;
+                                }
+                                tfoot th, tfoot td {
+                                  text-align: center;
+                                }
+                                td:empty:after {
+                                  content: '.';
+                                  color: transparent;
+                                  visibility: hidden;
+                                }
+                            </style>
+                            <table border="1px solid black" name='farm'>
+                                <tr>
+                                    <th border="1px solid black">Folio del Predio</th>
+                                    <th border="1px solid black">Superficie</th>
+                                </tr>
+                            </table>
+                        </p>
+                        <p>
+                            SEGUNDA.-PRECIO. EL “COMPRADOR” se obliga a pagar a “EL VENDEDOR” un precio por tonelada del “PRODUCTO” entregado, con la calidad establecida en la Cláusula Cuarta del presente Contrato y en la forma señalada en la CLÁUSULA TERCERA del mismo, más premio o castigo por calidad y/o ajuste por producto relacionado para cubrir el “PRODUCTO” motivo de este Contrato.
+                        </p>
+                        <p>
+                            Para la cotización del precio se utilizará el Contrato de <span t-field="doc.product"/> listado en la Bolsa de Valores de Chicago tomando el precio de cierre del futuro a Marzo 2017 al cual se le adicionara 20 Dolares como base minima al productor.
+                        </p>
+                        <p>
+                            Para calcular el equivalente en pesos del monto de las obligaciones de pago denominadas en dólares de los Estados Unidos de Américase utilizará el publicado por el Banco de México en el Diario Oficial de la Federación el día hábil bancario inmediato anterior.
+                        </p>
+                        <p>
+                            TERCERA.- FORMA DE PAGO. “EL COMPRADOR” se obliga a pagar a “EL VENDEDOR”, contra las entregas del “PRODUCTO” que “EL VENDEDOR” efectúe en el lugar de entrega y sean debidamente acreditadas ante “EL COMPRADOR”, en un plazo maximo de 15 dias naturales a partir de la fecha de facturación.
+                        </p>
+                        <p>
+                            CUARTA.- CALIDAD. “EL VENDEDOR” se obliga a que el “PRODUCTO” que entregue a “EL COMPRADOR” al amparo de este Contrato, deberá reunir las siguientes especificaciones de calidad y humedad:
+                        </p>
+                        <p>
+                            HUMEDAD:  14.0 %      MAXIMO
+                        </p>
+                        <p>
+                            IMPUREZA:  2.5 %       MAXIMO
+                        </p>
+                        <p>
+                            DAÑO MÁXIMO:  5.0 %       MAXIMO
+                        </p>
+                        <p>
+                            NO SE ACEPTA PLAGA VIVA
+                        </p>
+                        <p>
+                            PESO  VOLUMETRICO  0.720  KGS. X HL MÍNIMO
+                        </p>
+                        <p>
+                            NO SE RECIBE MAÍZ GENETICAMENTE MODIFICADO
+                        </p>
+                        <p>
+                            “EL COMPRADOR” NO ESTA OBLIGADA A RECIBIR “EL PRODUCTO” QUE NO ESTE DENTRO DE LAS ESPECIFICACIONES.
+                        </p>
+                        EN CASO DE CONTROVERSIA AMBAS PARTES ACUERDAN SUJETARSE AL ANALISIS QUE REALICE ALMACENADORA MERCADER, S.A.
+                        <p>
+                            QUINTA.- LUGAR, PLAZO DE ENTREGA Y DESTINO FINAL DEL “PRODUCTO”. “EL VENDEDOR” se obliga a entregar el “PRODUCTO” a “EL COMPRADOR” en la Bodega de Granos y Semillas Yecora, S.P.R. de R.L. de C.V.  Carretera panamericana km 167 carretera a Juárez, Ahumada, Chihuahua Tel. 625 586 5114.
+                        </p>
+                        <p>
+                            Plazo de entrega:
+                        </p>
+                        <p>
+                            “LAS PARTES” acuerdan y reconocen que el periodo de entrega del producto y el pago deberá ser del 1 de Octubre del 2016 al 31 de Enero del 2017.
+                        </p>
+                        <p>
+                            SEXTA.- PARTICIPACIÓN EN PROGRAMAS DE APOYOS FEDERALES. “LAS PARTES” convienen que, en caso de participar en programas de subsidios federales referentes al objeto del presente Contrato, se sujetan voluntariamente a los plazos, condiciones y requisitos que se establezcan en el Acuerdo por el que se dan a conocer las Reglas de Operación de los Programas de la Secretaría de Agricultura, Ganadería, Desarrollo Rural, Pesca y Alimentación publicadas en el Diario Oficial de la Federación el 30 de diciembre de 2015 (en lo sucesivo, “Reglas de Operación”).
+                        </p>
+                        <p>
+                            Con fundamento en el rubro de atribuciones y sanciones de las “Reglas de Operación” y en la normatividad aplicable que rija en el momento de que se trate, las partes aceptan sujetarse a las verificaciones físicas y/o documentales que la Unidad Responsable de SAGARPA considere pertinente realizar, de la Instancia Ejecutora del Órgano Interno de Control o de cualquier otra dependencia revisora.
+                        </p>
+                        <p>
+                            En caso de incumplimiento de sus obligaciones estipuladas en el presente Contrato, por alguna de las partes o, en caso de que la SAGARPA y/o la Unidad Responsable y/o la Instancia Ejecutora detecten alguna irregularidad, las partes aceptan que éste aplique las medidas de apremio o sanción previstas en la propia normatividad, sin perjuicio de las sanciones que pudieren corresponder por la conducta realizada, conforme a la legislación aplicable.
+                        </p>
+                        <p>
+                            Asimismo, manifiestan su conformidad a que, en caso de participar en programas de subsidios federales referentes al objeto del presente Contrato, SAGARPA podrá dar a conocer, en su caso, el volumen, fecha y zona de entrega, el precio de ejercicio y vencimiento de la(s) opción(es) adquiridas, así como el precio resultante a que se refiere la Cláusula SEGUNDA del presente instrumento, sin que ello implique los nombres de los contratantes.
+                        </p>
+                        <p>
+                            SÉPTIMA.- EXCLUYENTE DE RESPONSABILIDAD. “LAS PARTES” convienen expresamente, que en caso de que el ”PRODUCTO” objeto del presente Contrato no llegara a existir en su totalidad, por motivos no imputables a “EL VENDEDOR” derivados de casos fortuitos o de causas de fuerza mayor, ni “EL COMPRADOR” ni “EL VENDEDOR” estarán obligados a responder de las obligaciones establecidas en este Contrato.
+                        </p>
+                        <p>
+                            “LAS PARTES” convienen expresamente en que en caso de que, por motivos no imputables a “EL VENDEDOR” derivados de casos fortuitos o de causas de fuerza mayor, el volumen del “PRODUCTO” objeto de este Contrato resultara menor al establecido en la CLÁUSULA PRIMERAdel mismo, “EL COMPRADOR” se obliga a recibir la cantidad que resulte y a mantener el precio por tonelada pactado conforme a la CLÁUSULA SEGUNDA del presente Contrato, sin que este ajuste a la baja en los volúmenes del “PRODUCTO” a entregar o de la cantidad total a pagar por el mismo constituya responsabilidad para “LAS PARTES”, ni para la SAGARPA, la Instancia Ejecutora o la Unidad Responsable de la Dependencia.
+                        </p>
+                        <p>
+                            OCTAVA.- VIGENCIA. El presente Contrato permanecerá vigente a partir de la fecha de su firma y hasta 30 (treinta) días naturales después de la fecha de la última entrega del “PRODUCTO”.
+                        </p>
+                        <p>
+                            NOVENA.- IMPUESTOS. Las cargas impositivas que se generen con motivo del presente Contrato correrán por cuenta de quien tenga la obligación de cubrirlas de conformidad con las leyes fiscales respectivas.
+                        </p>
+                        <p>
+                            Así mismo, “LAS PARTES” se comprometen a que, en caso de CUMPLIMIENTO PARCIAL; es decir, mínimo un 90 por ciento de la cantidad de entrega establecida en el presente Contrato de Compra-Venta a Término, el pago del “PRODUCTO” será proporcional al mismo, conforme a lo estipulado en las CLÁUSULAS SEGUNDAy TERCERA del presente Contrato, sujeto a la emisión de declaratoria de conformidad de “LAS PARTES” que corresponda.
+                        </p>
+                        <p>
+                            "Cualquier estipulación contenida en el presente instrumento, que se oponga o contravenga a las Reglas de Operación, lineamientos y demás instrumentos normativos emitidos por la SAGARPA o por la Unidad Responsable se tendrán por no puesta, por lo que no producirán efecto legal alguno entre las partes, ni frente a terceros, cuando “LAS PARTES” participen en apoyos federales en términos de la cláusula sexta del presente Contrato.“LAS PARTES” se obligan a que, al cumplir con el objeto del presente proemio, formalizarán la terminación del Contrato otorgando el más amplio finiquito que en Derecho proceda, ANEXO “C”."
+                        </p>
+                        <p>
+                            DÉCIMA PRIMERA.- INCUMPLIMIENTO. ”LAS PARTES” convienen que en caso de declarar incumplimiento total de este Contrato por causas imputables a alguna de “LAS PARTES” según el ANEXO C, renuncian a todos los Apoyos establecidos en las Reglas de Operación de la SAGARPA relacionados con apoyos al tipo de Contratos estipulados en este documento(ANEXO A).
+                        </p>
+                        <p>
+                            DÉCIMA SEGUNDA.- COMPETENCIA Y LEGISLACIÓN APLICABLE. En caso de controversia sobre la interpretación y cumplimiento del presente Contrato, así como para todo aquello que no esté expresamente estipulado en el mismo, “LAS PARTES” se someten a las leyes aplicables y a los tribunales competentes dela Entidad Federativa de (entidad federativa donde se suscriba el Contrato), renunciando expresamente a cualquier otra jurisdicción que en razón de sus domicilios presentes o futuros, o por cualesquiera otra, les corresponda o pudiera corresponderles.
+                        </p>
+                        <p>
+                            Ambas partes manifiestan bajo protesta de decir verdad, que han llegado a este acuerdo de voluntades, sin coacción, sin dolo, sin mala fe, ni cualquier otro vicio del consentimiento que pudiera invalidarlo, por lo que conscientes de la importancia, trascendencia, alcance y fuerza legales de su contenido y de sus estipulaciones, firman de conformidad al margen y al calce, en tres ejemplares, el presente Contrato de Compra-Venta a Término, en Cd. Cuauhtemoc, Chihuahua,  el 26 de agosto de 2016.
+                        </p>
+                        <p>
+                            <table>
+                                <tr>
+                                    <th>POR “EL COMPRADOR”</th>
+                                    <th>“EL VENDEDOR (ES)”:</th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>JOHAN PETERS FRIESSEN</td>
+                                    <td><span t-field="doc.partner_ref"/></td>
+                                </tr>
+                                <tr>
+                                    <td>AGROCOMERCIAL CAMPO NUEVO, S.P.R. DE R.L. DE C.V.</td>
+                                    <td><span t-field="doc.partner_id"/></td>
+                                </tr>
+                                <tr>
+                                    <td>NOMBRE Y FIRMA</td>
+                                    <td>NOMBRE Y FIRMA</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>TESTIGO</td>
+                                    <td>TESTIGO</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>NOMBRE Y FIRMA</td>
+                                    <td>NOMBRE Y FIRMA</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>
