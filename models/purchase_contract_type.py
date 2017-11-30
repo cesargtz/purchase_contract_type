@@ -30,15 +30,19 @@ class PurchaseContractType(models.Model):
 
     @api.one
     def _compute_tons_reception(self):
+        self.tons_reception = self._get_tons_avalible(self.name)
+
+    @api.multi
+    def _get_tons_avalible(self,contract_id,):
         available = 0
-        for line in self.env['truck.reception'].search([('contract_id', '=', self.name), ('state', '=', 'done')]):
+        for line in self.env['truck.reception'].search([('contract_id', '=', contract_id), ('state', '=', 'done')]):
             if line.stock_picking_id:
                 available = available + (line.clean_kilos / 1000)
-        for line in self.env['split.receptions'].search([('contract_id', '=', self.name), ('state', '=', 'close')]):
+        for line in self.env['split.receptions'].search([('contract_id', '=', contract_id), ('state', '=', 'close')]):
             available = available - line.tons_transfer
-        for line in self.env['split.receptions'].search([('contract_dest_id', '=', self.name), ('state', '=', 'close')]):
+        for line in self.env['split.receptions'].search([('contract_dest_id', '=', contract_id), ('state', '=', 'close')]):
             available = available + line.tons_transfer
-        self.tons_reception = available
+        return available
 
     @api.one
     @api.depends('order_line')
