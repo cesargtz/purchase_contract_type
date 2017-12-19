@@ -27,10 +27,17 @@ class PurchaseContractType(models.Model):
     product = fields.Many2one('product.product', compute='_compute_product', store=False)
 
     tons_reception = fields.Float(compute='_compute_tons_reception', string="Toneladas Disponibles", store=False)
+    tons_free = fields.Float(compute='_compute_tons_free', string="Toneladas Libres", store=False)
 
     @api.one
     def _compute_tons_reception(self):
         self.tons_reception = self._get_tons_avalible(self.name)
+
+    @api.one
+    def _compute_tons_free(self):
+        tons_priced = sum(tons.pinup_tons for tons in self.env['pinup.price.purchase'].search(
+            [('purchase_order_id', '=', self.name), ('state', '=', 'close')]))
+        self.tons_free = self.tons_reception - tons_priced
 
     @api.multi
     def _get_tons_avalible(self,contract_id,):

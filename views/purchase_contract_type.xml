@@ -14,7 +14,9 @@
                 </field>
                 <field name="company_id" position="after">
                     <field name="tons_reception" string="Toneladas Entregado"/>
+                      <field name="tons_free" string="Toneladas Libres"/>
                 </field>
+
             </field>
         </record>
 
