@@ -51,6 +51,8 @@ class PurchaseContractType(models.Model):
             available = available + line.tons_transfer
         for line in self.env['return.truck'].search([('contract_id', '=', contract_id), ('state', '=', 'done')]):
             available = available - (line.raw_kilos/1000)
+        for line in self.env['bridge.warehouse'].search([('purchase_order', '=', contract_id), ('state','=','done')]):
+            available = available + (line.clean_kilos/1000)
         return available
 
     @api.one
