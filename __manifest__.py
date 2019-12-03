@@ -3,8 +3,7 @@
 {
     'name': 'Purchase Contract Type',
     'version': '10.0',
-    'author': 'Qx Unit de Mexico SA de CV',
-    'website': 'http://www.qxunit.com.mx',
+    'author': 'Cesar gtz',
     'depends': ['purchase', 'l10n_mx_invoice_amount_to_text','product'],
     'data': [
         'views/axc_contract.xml',

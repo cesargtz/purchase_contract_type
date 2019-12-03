@@ -26,8 +26,8 @@ class PurchaseContractType(models.Model):
     tons_text = fields.Text(compute='_compute_tons_text', store=False)
     product = fields.Many2one('product.product', compute='_compute_product', store=False)
 
-    tons_reception = fields.Float(compute='_compute_tons_reception', string="Toneladas Entregadas", store=False,  help="Son las toneladas que se recibierón y transfirierón, más menos los traspasos parciales entre contratos, menos las salidas de excedentes transferidas")
-    tons_free = fields.Float(compute='_compute_tons_free', string="Toneladas Disponibles", store=False, help="Son las toneladas que tiene el productor para preciar. Suma las toneladas de contrato y las de afuera del contrato.")
+    tons_reception = fields.Float(compute='_compute_tons_reception', digits=(12, 4), string="Toneladas Entregadas", store=False,  help="Son las toneladas que se recibierón y transfirierón, más menos los traspasos parciales entre contratos, menos las salidas de excedentes transferidas")
+    tons_free = fields.Float(compute='_compute_tons_free', digits=(12, 4), string="Toneladas Disponibles", store=False, help="Son las toneladas que tiene el productor para preciar. Suma las toneladas de contrato y las de afuera del contrato.")
 
     @api.one
     def _compute_tons_reception(self):
